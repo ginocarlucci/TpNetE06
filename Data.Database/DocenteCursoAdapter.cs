@@ -132,5 +132,22 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
+
+        public void Save(DocenteCurso dc)
+        {
+            if (dc.State == BusinessEntity.States.Delete)
+            {
+                this.Delete(dc.ID);
+            }
+            else if (dc.State == BusinessEntity.States.New)
+            {
+                this.Insert(dc);
+            }
+            else if (dc.State == BusinessEntity.States.Modified)
+            {
+                this.Update(dc);
+            }
+            dc.State = BusinessEntity.States.Unmodified;
+        }
     }
 }

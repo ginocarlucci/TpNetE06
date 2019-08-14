@@ -98,7 +98,7 @@ namespace Data.Database
                 this.OpenConnection();
                 SqlCommand cmdMaterias = new SqlCommand("INSERT INTO materias(id_materia,desc_materia,hs_semanales,hs_totales,id_plan)" +
                     "values(@id_materia,@desc_materia,@hs_semanales,@hs_totales,@id_plan)" + "select @@identity", sqlConn);
-                cmdMaterias.Parameters.Add("@id_materia", SqlDbType.Int).Value = materia.IdMateria;
+                cmdMaterias.Parameters.Add("@id_materia", SqlDbType.Int).Value = materia.ID;
                 cmdMaterias.Parameters.Add("@desc_materia", SqlDbType.VarChar, 50).Value = materia.DescMateria;
                 cmdMaterias.Parameters.Add("@hs_semanales", SqlDbType.Int).Value = materia.HsSemanales;
                 cmdMaterias.Parameters.Add("@hs_totales", SqlDbType.Int).Value = materia.HsTotales;
@@ -141,5 +141,21 @@ namespace Data.Database
             }
         }
 
+        public void Save(Materia m)
+        {
+            if (m.State == BusinessEntity.States.Delete)
+            {
+                this.Delete(m.ID);
+            }
+            else if (m.State == BusinessEntity.States.New)
+            {
+                this.Insert(m);
+            }
+            else if (m.State == BusinessEntity.States.Modified)
+            {
+                this.Update(m);
+            }
+            m.State = BusinessEntity.States.Unmodified;
+        }
     }
 }

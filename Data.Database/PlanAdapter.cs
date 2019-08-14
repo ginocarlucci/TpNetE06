@@ -136,5 +136,21 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
+        public void Save(Plan plan)
+        {
+            if (plan.State == BusinessEntity.States.Delete)
+            {
+                this.Delete(plan.ID);
+            }
+            else if (plan.State == BusinessEntity.States.New)
+            {
+                this.Insert(plan);
+            }
+            else if (plan.State == BusinessEntity.States.Modified)
+            {
+                this.Update(plan);
+            }
+            plan.State = BusinessEntity.States.Unmodified;
+        }
     }
 }
