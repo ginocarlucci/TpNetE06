@@ -130,7 +130,7 @@ namespace Data.Database
                 cmdCursos.Parameters.Add("@idComision", SqlDbType.Int).Value = curso.IdComision;
                 cmdCursos.Parameters.Add("@anioCalendario", SqlDbType.Int).Value = curso.AnioCalendario;
                 cmdCursos.Parameters.Add("@cupo", SqlDbType.Int).Value = curso.Cupo;
-                cmdCursos.Parameters.Add("@idCurso", SqlDbType.Int).Value = curso.IdCurso;
+                cmdCursos.Parameters.Add("@idCurso", SqlDbType.Int).Value = curso.ID;
                 cmdCursos.ExecuteNonQuery();
             }
             catch(Exception Ex)
