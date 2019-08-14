@@ -18,6 +18,10 @@ namespace Business.Entities
             _IdCurso = IdCurso;
             _Nota = Nota;
         }
+        public AlumnoInscripcion()
+        {
+
+        }
 
         public string Condicion
         {
