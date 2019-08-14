@@ -28,5 +28,10 @@ namespace Business.Entities
             set { _IdEspecialidad = value; }
             get { return IdEspecialidad; }
         }
+
+        public Plan()
+        {
+
+        }
     }
 }

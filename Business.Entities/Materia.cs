@@ -42,5 +42,10 @@ namespace Business.Entities
             _HsTotales = HsTotales;
             _IdPlan = IdPlan;
         }   
+
+        public Materia()
+        {
+
+        }
     }
 }
