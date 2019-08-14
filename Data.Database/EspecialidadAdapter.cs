@@ -129,5 +129,21 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
+        public void Save(Especialidad esp)
+        {
+            if (esp.State == BusinessEntity.States.Delete)
+            {
+                this.Delete(esp.ID);
+            }
+            else if (esp.State == BusinessEntity.States.New)
+            {
+                this.Insert(esp);
+            }
+            else if (esp.State == BusinessEntity.States.Modified)
+            {
+                this.Update(esp);
+            }
+            esp.State = BusinessEntity.States.Unmodified;
+        }
     }
 }

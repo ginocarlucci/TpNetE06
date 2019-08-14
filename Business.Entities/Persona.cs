@@ -33,6 +33,10 @@ namespace Business.Entities
             _TipoPersona = TipoPersona;
             _IdPlan = IdPlan;
         }
+        public Persona()
+        {
+
+        }
 
         public string Nombre { get => _Nombre; set => _Nombre = value; }
         public string Apellido { get => _Apellido; set => _Apellido = value; }

@@ -151,5 +151,19 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
+        public void Save(ModuloUsuario mu)
+        {
+            if (mu.State == BusinessEntity.States.Delete)
+            {
+                this.Delete(mu.ID);
+            }else if(mu.State == BusinessEntity.States.New)
+            {
+                this.Insert(mu);
+            }else if(mu.State == BusinessEntity.States.Modified)
+            {
+                this.Update(mu);
+            }
+            mu.State = BusinessEntity.States.Unmodified;
+        }
     }
 }

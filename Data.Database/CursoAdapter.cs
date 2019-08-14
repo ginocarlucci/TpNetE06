@@ -143,5 +143,22 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
+
+        public void Save(Curso curso)
+        {
+            if (curso.State == BusinessEntity.States.Delete)
+            {
+                this.Delete(curso.ID);
+            }
+            else if (curso.State == BusinessEntity.States.New)
+            {
+                this.Insert(curso);
+            }
+            else if (curso.State == BusinessEntity.States.Modified)
+            {
+                this.Update(curso);
+            }
+            curso.State = BusinessEntity.States.Unmodified;
+        }
     }
 }
