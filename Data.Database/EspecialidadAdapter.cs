@@ -116,10 +116,10 @@ namespace Data.Database
                     new SqlCommand("UPDATE especialidades SET desc_especialidad = @desc_especialidad " +
                     "WHERE id_especialidad = @id_especialidad");
                 cmdEspecialidad.Parameters.Add("@desc_especialidad", SqlDbType.VarChar, 50).Value = esp.Desc_especialidad;
-                cmdEspecialidad.Parameters.Add("@id_especialidad", SqlDbType.Int).Value = esp.Id_especialidad;
+                cmdEspecialidad.Parameters.Add("@id_especialidad", SqlDbType.Int).Value = esp.ID;
                 cmdEspecialidad.ExecuteNonQuery();
             }
-            catch
+            catch(Exception Ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al actualizar especialidad", Ex);
                 throw ExcepcionManejada;

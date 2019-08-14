@@ -79,7 +79,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al eliminar un docenteCurso");
+                Exception ExcepcionManejada = new Exception("Error al eliminar un docenteCurso",Ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -101,7 +101,7 @@ namespace Data.Database
             }
             catch(Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al ingresar un docenteCurso");
+                Exception ExcepcionManejada = new Exception("Error al ingresar un docenteCurso", Ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -124,7 +124,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al actualizar un docenteCurso");
+                Exception ExcepcionManejada = new Exception("Error al actualizar un docenteCurso", Ex);
                 throw ExcepcionManejada;
             }
             finally
