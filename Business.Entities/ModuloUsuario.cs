@@ -55,7 +55,10 @@ namespace Business.Entities
             _Modificacion = Modificacion;
             _Consulta = Consulta;
         }
+        public ModuloUsuario()
+        {
 
+        }
         
         
     }
