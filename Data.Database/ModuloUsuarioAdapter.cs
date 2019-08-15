@@ -8,7 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 namespace Data.Database
 {
-    class ModuloUsuarioAdapter : Adapter
+    public class ModuloUsuarioAdapter : Adapter
     {
         public List<ModuloUsuario> GetAll()
         {
