@@ -19,7 +19,6 @@ namespace Business.Entities
         private int _IdPersona;
 
 
-        // Constructor    (VER CONSTRUCTOR - FALTAN VARIBALES )
         public Usuario(string NombreUsuario, string ClaveUsuario, bool Habilitado, int IdPersona)
         {
             _NombreUsuario = NombreUsuario;

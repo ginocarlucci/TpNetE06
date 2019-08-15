@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Data.Database
 {
-    class ComisionAdapter : Adapter
+    public class ComisionAdapter : Adapter
     {
 
         public List<Comision> GetAll()

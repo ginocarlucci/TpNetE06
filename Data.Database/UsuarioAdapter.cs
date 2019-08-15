@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace Data.Database
 {
-    class UsuarioAdapter : Adapter
+    public class UsuarioAdapter : Adapter
     {
 
         public List<Usuario> GetAll()
