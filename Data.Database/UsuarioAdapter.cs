@@ -9,7 +9,7 @@ namespace Data.Database
     class UsuarioAdapter : Adapter
     {
 
-        /// VER TIPOS DE VARIABLE SQL .... (NICO)
+        /// VER nombres de atributos SQL 
 
         public List<Usuario> GetAll()
         {
@@ -22,11 +22,12 @@ namespace Data.Database
                 while (drUsuarios.Read())
                 {
                     Usuario usr = new Usuario();
-                    usr.NombreUsuario = (string)drUsuarios["Nombre_Usuario"];
-                    usr.ClaveUsuario = (string)drUsuarios["Clave_Usuario"];
-                    usr.Habilitado = (bool)drUsuarios["Habilitado"];
-                    usr.CambiaClave = (bool)drUsuarios["Cambia_Clave"];
-                    usr.IdPersona = (int)drUsuarios["Id_Persona"];
+                    usr.ID = (int)drUsuarios["id_usuario"];
+                    usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
+                    usr.ClaveUsuario = (string)drUsuarios["clave_usuario"];
+                    usr.Habilitado = (bool)drUsuarios["habilitado"];
+                    usr.CambiaClave = (bool)drUsuarios["cambia_clave"];
+                    usr.IdPersona = (int)drUsuarios["id_persona"];
                     usuarios.Add(usr);
                 }
                 drUsuarios.Close();
