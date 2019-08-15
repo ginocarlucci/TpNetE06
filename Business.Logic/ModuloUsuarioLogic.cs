@@ -8,7 +8,7 @@ using Business.Entities;
 
 namespace Business.Logic
 {
-    class ModuloUsuarioLogic
+    class ModuloUsuarioLogic : BusinessLogic
     {
         private Data.Database.ModuloUsuarioAdapter _ModuloUsuarioData;
 
