@@ -29,6 +29,9 @@ namespace Business.Entities
             _IdPersona = IdPersona;
         }
 
+        public Usuario()
+        { }
+
         public string NombreUsuario { get => _NombreUsuario; set => _NombreUsuario = value; }
         public string ClaveUsuario { get => _ClaveUsuario; set => _ClaveUsuario = value; }
         public bool Habilitado { get => _Habilitado; set => _Habilitado = value; }
