@@ -9,8 +9,6 @@ namespace Data.Database
     class UsuarioAdapter : Adapter
     {
 
-        /// VER nombres de atributos SQL 
-
         public List<Usuario> GetAll()
         {
             List<Usuario> usuarios = new List<Usuario>();
@@ -55,11 +53,11 @@ namespace Data.Database
                 SqlDataReader drUsuario = cmdUsuario.ExecuteReader();
                     if (drUsuario.Read())
                 {
-                    usr.NombreUsuario = (string)drUsuario["Nombre_Usuario"];
-                    usr.ClaveUsuario = (string)drUsuario["Clave_Usuario"];
-                    usr.Habilitado = (bool)drUsuario["Habilitado"];
-                    usr.CambiaClave = (bool)drUsuario["Cambia_Clave"];
-                    usr.IdPersona = (int)drUsuario["Id_Persona"];
+                    usr.NombreUsuario = (string)drUsuario["nombre_usuario"];
+                    usr.ClaveUsuario = (string)drUsuario["clave_usuario"];
+                    usr.Habilitado = (bool)drUsuario["habilitado"];
+                    usr.CambiaClave = (bool)drUsuario["cambia_clave"];
+                    usr.IdPersona = (int)drUsuario["id_persona"];
                 }
                 drUsuario.Close();
             }
@@ -106,14 +104,14 @@ namespace Data.Database
                 cmdUsuarios.Parameters.Add("@id_usuario", SqlDbType.Int).Value = usuario.ID;
                 cmdUsuarios.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdUsuarios.Parameters.Add("@clave_usuario", SqlDbType.VarChar).Value = usuario.ClaveUsuario;
-                cmdUsuarios.Parameters.Add("@habilitado", SqlDbType.Int).Value = usuario.Habilitado;
-                cmdUsuarios.Parameters.Add("@cambia_clave", SqlDbType.Int).Value = usuario.CambiaClave;
+                cmdUsuarios.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
+                cmdUsuarios.Parameters.Add("@cambia_clave", SqlDbType.Bit).Value = usuario.CambiaClave;
                 cmdUsuarios.Parameters.Add("@id_persona", SqlDbType.Int).Value = usuario.IdPersona;
                 usuario.ID = Decimal.ToInt32((decimal)cmdUsuarios.ExecuteScalar());
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al insertar materia", Ex);
+                Exception ExcepcionManejada = new Exception("Error al insertar usuario", Ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -132,8 +130,8 @@ namespace Data.Database
                 cmdUsuarios.Parameters.Add("@id_usuario", SqlDbType.Int).Value = usuario.ID;
                 cmdUsuarios.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdUsuarios.Parameters.Add("@clave_usuario", SqlDbType.VarChar).Value = usuario.ClaveUsuario;
-                cmdUsuarios.Parameters.Add("@habilitado", SqlDbType.Int).Value = usuario.Habilitado;
-                cmdUsuarios.Parameters.Add("@cambia_clave", SqlDbType.Int).Value = usuario.CambiaClave;
+                cmdUsuarios.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
+                cmdUsuarios.Parameters.Add("@cambia_clave", SqlDbType.Bit).Value = usuario.CambiaClave;
                 cmdUsuarios.Parameters.Add("@id_persona", SqlDbType.Int).Value = usuario.IdPersona;
                 cmdUsuarios.ExecuteNonQuery();
             }

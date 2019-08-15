@@ -21,6 +21,8 @@ namespace Business.Entities
             _IdPlan = IdPlan;
         }
 
+        public Comision() { }
+
         public string DescComision { get => _DescComision; set => _DescComision = value; }
         public int AnioEspecialidad { get => _AnioEspecialidad; set => _AnioEspecialidad = value; }
         public int IdPlan { get => _IdPlan; set => _IdPlan = value; }
